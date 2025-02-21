@@ -35,7 +35,7 @@ type Config struct {
 
 // InitContext initializes DB connection by the given config
 func InitContext(ctx context.Context, cfg Config) (*sqlx.DB, error) {
-	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s",
 		cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.Name)
 
 	conn, err := sqlx.ConnectContext(ctx, "postgres", psqlInfo)
